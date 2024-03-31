@@ -1,0 +1,24 @@
+body{
+    display: flow-root;
+    background-color: rgb(219, 235, 185);
+}
+#img1{
+    float:left;
+    margin-right:10px;  
+}
+#div1{
+    background-color:beige;
+}
+#pre1{
+ background-color: beige;
+ font-family: Arial, Helvetica, sans-serif;
+}
+#div2{
+background-color:beige;
+}
+#t1{
+    background-color: aliceblue;
+}
+#nothing{
+    background-color: rgb(209, 190, 163);
+}
