@@ -11,14 +11,19 @@ body{
 }
 #pre1{
  background-color: beige;
- font-family: Arial, Helvetica, sans-serif;
+ font-family: cursive;
 }
 #div2{
 background-color:beige;
 }
 #t1{
-    background-color: aliceblue;
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:aliceblue;
+    margin-left: 10px;
+    margin-right: 20px;
 }
-#nothing{
-    background-color: rgb(209, 190, 163);
+#div3{
+    text-align: left;
+    background-color: rgb(210, 247, 146);
 }
