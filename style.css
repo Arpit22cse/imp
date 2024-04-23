@@ -5,6 +5,33 @@ body{
 #img1{
     float:left;
     margin-right:10px;  
+    position: null;
+}
+.nav1 a{
+    padding: 15px;
+    text-align: centre;
+    display: inline-block;
+    text-decoration: none;
+    margin:0%;
+    padding: 0%;
+    background-color: aliceblue;
+    margin-left: 150px;
+    cursor:ok;
+}
+.nav1 li{
+    float:left;
+}
+.nav1 ul{
+    background-color: beige;
+    list-style-type: none;
+    overflow: hidden;
+    text-align: centre;
+}
+.nav1:hover{
+    background-color: wheat;
+}
+.nav1 a:hover{
+     background-color: wheat;
 }
 #div1{
     background-color:beige;
@@ -19,11 +46,74 @@ background-color:beige;
 #t1{
     font-size: medium;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color:aliceblue;
+    background-color:beige;
     margin-left: 10px;
     margin-right: 20px;
 }
 #div3{
     text-align: left;
-    background-color: rgb(210, 247, 146);
+    background-color:rgb(219, 235, 185);;
 }
+button:hover{
+    background-color: rgb(133, 183, 227);
+    font-size: large;
+    color: azure;
+}
+button:visited{
+    background-color: black;
+}
+#div3 pre:hover{
+    background-color: wheat;
+    font-size: 17;
+}
+#t1:hover{
+    background-color: wheat;
+}
+#div4 pre:hover{
+    background-color: wheat;
+    font-size:17;
+}
+#div1:hover{
+    background-color: wheat;
+}
+h4{
+    margin-bottom: 0%;
+    size: 25;
+}
+#div4:pre{
+    margin-top: 0;
+}
+#div4{
+    background-color: beige;
+}
+#div2:hover{
+    background-color: wheat;
+}
+#div1 pre:hover{
+    background-color: wheat;
+}
+.pagenation{
+    text-align: center;
+}
+#div5{
+    background-color: beige;
+}
+#div5:hover{
+    background-color: wheat;
+    font-size: 17;
+}
+.pagenation a{
+    text-decoration: none;
+    padding: 8px 15px;
+    display: inline-block;
+}
+.pagenation a:visited{
+    background-color: red;
+} 
+.pagenation a:not(.hover){
+    background-color: rgb(159, 159, 221);
+}
+.pagenation a:hover{
+    background-color: yellowgreen;
+}
+
