@@ -1,0 +1,30 @@
+body{
+    text-align: center;
+}
+form{
+    background-color: rgb(97, 231, 231);
+    text-align: center;
+    width: fit-content;
+    padding: 50px;
+    margin: auto;
+}
+#sub{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#tempinput{
+    margin-bottom: 10px;
+}
+#tofarhenite{
+    margin-bottom: 10px;
+}
+#sub:hover{
+    cursor: pointer;
+    background-color: aquamarine;
+}
+#result{
+    text-shadow: 5px,10px,20px;
+    font-weight: bold;
+    font-size: large;
+}
+

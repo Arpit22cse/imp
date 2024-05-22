@@ -1,0 +1,12 @@
+body{
+    background-color: antiquewhite;
+    text-align: center;
+}
+#l1{
+    text-align: center;
+    font-size: 100px;
+}
+.but{
+   background-color: aqua;
+   size: 40px;  
+}
