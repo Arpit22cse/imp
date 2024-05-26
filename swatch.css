@@ -1,0 +1,29 @@
+body{
+    text-align: center;
+    align-content: center;
+}
+#reset{
+    background-color: tomato;
+    font-weight: bold;
+    color: rgb(14, 9, 9);
+    width: 55px;
+}
+#start{
+    background-color: greenyellow;
+    font-weight: bold;
+    color: rgb(14, 9, 9);
+    width: 55px;
+}
+#stop{
+    background-color: yellow;
+    font-weight: bold;
+    color: rgb(14, 9, 9);
+    width: 55px;
+}
+#head1{
+    background-color: aquamarine;
+    padding: 50px;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+}

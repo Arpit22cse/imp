@@ -18,6 +18,10 @@ body{
     margin-left: 150px;
     cursor:ok;
 }
+#head1{
+    color: rgb(68, 17, 8);
+    font-size: large;
+}
 .nav1 li{
     float:left;
 }

@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+    align-content: center;
+    background-image:url(city.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#head1{
+    font-size: 72px;
+    font-weight: 20;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    color: tomato;
+    font-family: monospace;
+    flex: auto;
+    backdrop-filter: blur(25px);
+}
