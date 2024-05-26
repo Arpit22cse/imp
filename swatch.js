@@ -6,6 +6,9 @@ let sec=0;
 const s=document.getElementById("start");
 const e=document.getElementById("stop");
 s.onclick=()=>{
+    if(x==true){
+        return;
+    }
  x=true;
  z=setInterval(start,1000);
 }
@@ -19,6 +22,7 @@ document.getElementById("reset").onclick=()=>{
     min=0;
     hou=0;
     day=0;
+    x=false;
     clearInterval(z);
     document.getElementById("head1").textContent="00:00:00:00";
 }
