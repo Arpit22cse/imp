@@ -5,14 +5,14 @@ function changeMode(){
         x.innerText="Switch to LightMode";
         let y=document.querySelectorAll(".first");
         y.forEach(i => {
-            i.style.backgroundColor="rgb(128,128,128)";
+            i.style.backgroundColor="rgb(0,0,0)";
             i.style.color="lightgreen";
             i.addEventListener("mouseover",()=>{
-                i.style.backgroundColor="lightgreen";
+                i.style.backgroundColor="yellow";
                 i.style.color="black";
             })
             i.addEventListener("mouseout",()=>{
-            i.style.backgroundColor="grey";
+            i.style.backgroundColor="black";
             i.style.color="lightgreen";
             })
         });

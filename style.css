@@ -4,8 +4,14 @@ body{
 }
 #img1{
     float:left;
-    margin-right:10px;  
-    position: null;
+    margin:10px;  
+    position: left;
+    overflow: hidden;
+    padding: 1px;
+    background-color: black;
+}
+#div1{
+    overflow: hidden;
 }
 .first a{
     padding: 15px;
