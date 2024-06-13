@@ -1,31 +1,50 @@
-//console.log("hello");
-//window.alert("this is an alert");
-//let name;
-//name=window.prompt("Enter your name");
-//document.getElementById("h1").textContent='Hello '+name+" Thanks for coming on my site";
-const d=document.getElementById("l1");
-const ad=document.getElementById("add");
-const su=document.getElementById("subtract");
-const re=document.getElementById("reset");
-let count = 0+0;
-ad.onclick = function(){
-    count++;
-    document.getElementById("l1").textContent=count;
+function changeMode(){
+    const x=document.getElementById("mode");
+    if(x.innerText=="Switch to DarkMode"){
+        document.body.style.backgroundColor="black";
+        x.innerText="Switch to LightMode";
+        let y=document.querySelectorAll(".first");
+        y.forEach(i => {
+            i.style.backgroundColor="rgb(128,128,128)";
+            i.style.color="lightgreen";
+            i.addEventListener("mouseover",()=>{
+                i.style.backgroundColor="lightgreen";
+                i.style.color="black";
+            })
+            i.addEventListener("mouseout",()=>{
+            i.style.backgroundColor="grey";
+            i.style.color="lightgreen";
+            })
+        });
+        let z=document.querySelectorAll(".second");
+        z.forEach(i=>{
+            i.style.color="white";
+        });
+    }else{
+        document.body.style.backgroundColor="rgb(219, 235, 185)";
+        x.innerText="Switch to DarkMode";
+        let y=document.querySelectorAll(".first");
+        y.forEach(i => {
+            i.style.backgroundColor="beige";
+            i.style.color="black";
+            i.addEventListener("mouseover",()=>{
+                i.style.backgroundColor="wheat";
+                i.style.color="black";
+            })
+            i.addEventListener("mouseout",()=>{
+            i.style.backgroundColor="beige";
+            i.style.color="black";
+            })
+        });
+        document.querySelectorAll(".second").forEach(i=>{
+            i.style.color="black";
+        });
+    }
 }
-su.onclick = function(){
-    count--;
-    d.textContent=count;
-}
-re.onclick = function(){
-    count=0;
-    d.textContent=count;
-}
-//Math.random() generate a random number between 0 and 1;
-document.getElementById("ran").onclick = function(){
-    let max=100;
-    let min=1;
-    count=Math.floor(Math.random()*max)+min;
-    d.textContent=count;
-}
-
-
+(async()=>{
+    let x=await (await fetch("https://type.fit/api/quotes")).json();
+    let y=await (await fetch("https://dog.ceo/api/breeds/image/random")).json();
+    let ix=Math.floor(Math.random()*16);
+    document.getElementById("quote").innerText+=x[ix].text;
+    document.getElementById("img1").src=y.message;
+})();

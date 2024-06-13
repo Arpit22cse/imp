@@ -6,37 +6,39 @@
             Resume
         </title>
     </head>
-    <nav class="nav1">
-        <ul>
+    <nav class="first">
+        <ul class="first">
             <li><a href="about.html">About</a></li>
             <li><a href="project.html">My Project</a></li>
             <li><a href="work.html">My Work</a></li>
         </ul>
     </nav>
     <body>
-        <h3>
-            Virat Kohli
+        <h3 id="quote" class="second">Quote😊 :</h4>
+        <h3 class="second">
+            Lucy(Software Engineer)
         </h3>
         <a href="meme.mp4" title="dont open this" target="_blank"><button>Click here</button></a>
-        <img src="hey.avif" alt="candidate pic" height="130" id="img1">
-        <div id="div1"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae eum expedita repellat voluptatem commodi nesciunt nam dignissimos ipsa repudiandae quae similique at animi minus, quis deserunt aperiam facere rem id.</p>
-        <pre id="pre1"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        <button id="mode" width="30" onclick="changeMode()">Switch to DarkMode</button>
+        <img src="" alt="candidate pic" height="130" id="img1">
+        <div id="div1" class="first"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae eum expedita repellat voluptatem commodi nesciunt nam dignissimos ipsa repudiandae quae similique at animi minus, quis deserunt aperiam facere rem id.</p>
+        <pre> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
  Numquam doloremque aspernatur consectetur eligendi. Libero
  amet perspiciatis vero obcaecati nihil ratione animi explicabo. 
  Aliquid, dolor.Voluptates ipsa dolorum consectetur laborum totam?</pre></div>
         <br>
         <hr>
-        <audio src="unstoppable.mp3" controls  loop></audio>
-        <h4>Contact</h4>
-        <div id="div2">
-        <a href="mailto:arpi2733@gmail.com" title="want to sends a mail" target="_blank">
-            <img src="mail.jpg" alt="Mail logo" height="50" >
+        <audio src="unstoppable.mp3" controls  loop ></audio>
+        <h4 class="second">Contact</h4>
+        <div id="div2" class="first">
+        <a id="a1" href="mailto:arpi2733@gmail.com" title="want to sends a mail" target="_blank">
+            <img id="mail" src="mail.jpg" alt="Mail logo" height="50" >
         </a>
         <a href="https://www.linkedin.com/in/arpit-khandelwal-b24020283/" title="view linkedin profile" target="_blank"><img src="linkedin.png" alt="linkedin logo" width="50"></a>
         </div>
         <p></p>
-        <h4>Education</h4>
-        <table border="2px" id="t1">
+        <h4 class="second">Education</h4>
+        <table border="2px" id="t1" class="first">
             <tr>
                 <th>
                     <h4>Qualifications</h4>
@@ -71,16 +73,16 @@
             </tr>
         </table>
         <br>
-        <h4>Skills</h4>
-        <div id="div3">
-        <pre id="t1">
+        <h4 class="second">Skills</h4>
+        <div id="div3" class="first">
+        <pre id="t1" class="first">
     <b>OOPS with Java
     HTML and css
     JavaScript
     DSA with Java</b></pre>
         </div>
-        <h4>Experience</h4>
-        <div id="div4">
+        <h4 class="second">Experience</h4>
+        <div id="div4" class="first">
             <pre>   <b>Fresher</b></pre>
         </div>
         
@@ -89,18 +91,18 @@
         <br>
         <label for="title" aria-setsize="35"><b>Remarks:</b></label>
 
-        <label for="title">Good</label>
         <input type="radio" id="nothing" value="Mr." name="title">
-        <label for="title">average</label>
+        <label for="title" class="second">Good</label>
         <input type="radio" id="nothing" value="Mr." name="title">
-        <label for="title">away from ur understanding</label>
+        <label for="title" class="second">average</label>
         <input type="radio" id="nothing" value="Mr." name="title">
+        <label for="title" class="second">away from ur understanding</label>
         <br>
 
 
         <label for="suggestion" aria-setsize="35"><b>suggestion:</b></label><br>
         <textarea name="suggestion" id="" cols="30" rows="5"></textarea>
-
+        <script src="index.js"></script>
     </body>
     <footer>
         <div id="div5" class="pagenation">
