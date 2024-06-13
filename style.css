@@ -9,6 +9,7 @@ body{
     overflow: hidden;
     padding: 1px;
     background-color: black;
+    width: 25%;
 }
 #div1{
     overflow: hidden;
