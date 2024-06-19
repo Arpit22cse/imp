@@ -47,4 +47,7 @@ function changeMode(){
     let ix=Math.floor(Math.random()*16);
     document.getElementById("quote").innerText+=x[ix].text;
     document.getElementById("img1").src=y.message;
+    let z= (await fetch("https://pokeapi.co/api/v2/type"));
+    //let z1=await (z.json())
+    console.log(z);
 })();
