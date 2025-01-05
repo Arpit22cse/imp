@@ -42,7 +42,7 @@
             .catch(error => console.error('Error:', error));
         });
 
-        const socket = new WebSocket('ws://backend-6qxr.onrender.com');
+        const socket = new WebSocket('wss://backend-6qxr.onrender.com');
 
         // Connection opened
         document.getElementById('but').addEventListener('click', () => {
