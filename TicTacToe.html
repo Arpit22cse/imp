@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        #board { display: grid; grid-template-columns: repeat(3, 100px); gap: 5px; }
+        .cell { width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 24px; background: lightgray; cursor: pointer; }
+        .cell.taken { cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <input id="roomIdInput" placeholder="Enter Room ID (or leave blank for random)">
+    <button onclick="joinGame()">Join Game</button>
+    <p id="status"></p>
+    <div id="board"></div>
+    
+    <script>
+        const socket = new WebSocket("wss://backend-6qxr.onrender.com");
+        let roomId = null, symbol = null, turn = 'X';
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+
+            if (data.type === 'joined') {
+                roomId = data.roomId;
+                symbol = data.symbol;
+                document.getElementById("status").textContent = `Joined Room ${roomId} as ${symbol}`;
+            } else if (data.type === 'start' || data.type === 'update') {
+                turn = data.turn;
+                updateBoard(data.board);
+            } else if (data.type === 'win') {
+                alert(`${data.winner} wins!`);
+                resetBoard();
+            } else if (data.type === 'draw') {
+                alert("It's a draw!");
+                resetBoard();
+            } else if (data.type === 'opponentLeft') {
+                alert("Opponent left. Game over.");
+                resetBoard();
+            }
+        };
+
+        function joinGame() {
+            const input = document.getElementById("roomIdInput").value.trim();
+            socket.send(JSON.stringify({ type: 'createOrJoin', roomId: input || null }));
+        }
+
+        function updateBoard(board) {
+            const boardDiv = document.getElementById("board");
+            boardDiv.innerHTML = "";
+            board.forEach((cell, index) => {
+                const div = document.createElement("div");
+                div.classList.add("cell");
+                if (cell) div.classList.add("taken");
+                div.textContent = cell || "";
+                div.onclick = () => makeMove(index);
+                boardDiv.appendChild(div);
+            });
+        }
+
+        function makeMove(index) {
+            if (symbol !== turn) return;
+            socket.send(JSON.stringify({ type: 'move', roomId, index }));
+        }
+
+        function resetBoard() {
+            document.getElementById("board").innerHTML = "";
+            document.getElementById("status").textContent = "Game over.";
+        }
+    </script>
+</body>
+</html>

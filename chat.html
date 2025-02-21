@@ -1,87 +1,54 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WebSocket Private Room</title>
 </head>
 <body>
-    <div id="loginForm">
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
-        <button id="loginButton">Login</button>
-    </div>
-    <div id="chatApp" style="display:none;">
-        <input type="text" id="inputMessage">
-        <button id="but">Send message</button><br>
-        <div id="messageBlock"></div>
+    <h1>Private Chat Room</h1>
+    <div>
+        <ul id="messages"></ul>
+        <input type="text" id="messageInput" placeholder="Type your message here" />
+        <button onclick="sendMessage()">Send</button>
     </div>
 
     <script>
-        document.getElementById('loginButton').addEventListener('click', () => {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        const socket = new WebSocket('ws://localhost:3000');
+        let roomId = '';
 
-            fetch('https://backend-6qxr.onrender.com/logIn', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            })
-            .then(response =>{
-            //.then(data => {
-                console.log(response);
-                if (response.status===200) {
-                    document.getElementById('loginForm').style.display = 'none';
-                    document.getElementById('chatApp').style.display = 'block';
-                } else {
-                    alert('Login failed');
+        socket.onopen = () => {
+            console.log('Connected to server');
+        };
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            console.log(data);
+            
+            if (data.action === 'matched') {
+                roomId = data.roomId;
+                console.log(`You have been matched in room: ${roomId}`);
+            } else if (data.action === 'message') {
+                if (data.sender !== 'self') {
+                    displayMessage(data.message);
                 }
-            //})
-            })
-            .catch(error => console.error('Error:', error));
-        });
-
-        const socket = new WebSocket('ws://backend-6qxr.onrender.com');
-
-        // Connection opened
-        document.getElementById('but').addEventListener('click', () => {
-            const el = document.getElementById('inputMessage');
-            const message = el.value;
-            const child = document.createElement('div');
-            child.textContent = message;
-            child.style.backgroundColor = 'white';
-            child.style.margin = '2px';
-            document.getElementById('messageBlock').appendChild(child);
-            el.value = '';
-            if (socket.readyState === WebSocket.OPEN) {
-                socket.send(message);
-            } else {
-                socket.addEventListener('open', function () {
-                    socket.send(message);
-                }, { once: true });
             }
-        });
+        };
 
-        // Listen for messages
-        socket.addEventListener('message', function (event) {
-            const child = document.createElement('div');
-            child.textContent = event.data;
-            child.style.backgroundColor = 'grey';
-            child.style.margin = '2px';
-            document.getElementById('messageBlock').appendChild(child);
-            console.log('Message from server ', event.data);
-        });
+        function sendMessage() {
+            const message = document.getElementById('messageInput').value;
+            socket.send(JSON.stringify({ action: 'message', roomId: roomId, message: message, sender: 'self' }));
+            displayMessage(`You: ${message}`);
+            document.getElementById('messageInput').value = '';
+        }
 
-        // Handle connection errors
-        socket.addEventListener('error', function (event) {
-            console.error('WebSocket error: ', event);
-        });
-
-        // Handle connection close
-        socket.addEventListener('close', function (event) {
-            console.log('WebSocket connection closed: ', event);
-        });
+        function displayMessage(message) {
+            
+            const messageList = document.getElementById('messages');
+            const messageItem = document.createElement('li');
+            messageItem.textContent = message;
+            messageList.appendChild(messageItem);
+        }
     </script>
 </body>
 </html>
